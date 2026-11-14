@@ -1,0 +1,14 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      DB_PATH: /data/leads.db
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      WEBHOOK_SECRET: ${WEBHOOK_SECRET:-}
+      ALERT_WEBHOOK_URL: ${ALERT_WEBHOOK_URL:-}
+      EMAIL_WEBHOOK_URL: ${EMAIL_WEBHOOK_URL:-}
+      BUSINESS_DESCRIPTION: "a digital marketing agency for small businesses"
+    volumes:
+      - ./data:/data
